@@ -1,10 +1,17 @@
-import app, { Response } from 'express'
+import app, { Request, Response } from 'express'
 import { registerUser } from '../controllers/user.controller'
+import { validate } from '../middlewares/validate.middleware'
+import { createUserSchema } from '../validations/user.validation'
 
 const router = app.Router()
 
-router.get('/', (res:Response)=>{res.send("hello")})
+router.get('/', (req:Request, res:Response)=>{
+    res.send("hello from micro service")
+}
+)
 router.post('/login')
-router.post('/register', registerUser)
+
+
+router.post('/register', validate(createUserSchema), registerUser)
 
 export default router

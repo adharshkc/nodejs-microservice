@@ -1,5 +1,5 @@
 import {PrismaClient} from "@prisma/client"
-const prisma = new PrismaClient()
+const prisma = new  PrismaClient()
 import {User} from "../../src/types/types"
 
 export const createUser = async function ({name, email}:User){
