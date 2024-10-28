@@ -16,3 +16,15 @@ export const createUser = async function ({name, email}:User){
     }
 }
 
+export const checkUser = async function(email:string){
+    try {
+        const user = await prisma.user.findUnique({
+            where:{
+                email:email
+            }
+        })
+        return user
+    } catch (error) {
+        console.log(error)
+    }
+}
