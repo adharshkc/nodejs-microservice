@@ -1,14 +1,9 @@
 
 
-// const loginUser = async function(req:Request, res:Response){
-//     const {email, password} = req.body;
-
-
 import {  Request, Response } from "express"
-import {checkUser, createUser} from "../../prisma/helpers/user"
+import {checkUser, createUser} from "../helpers/user"
     
-    
-// }
+ 
 
 export const registerUser = async function (req:Request, res:Response) {
     try {
