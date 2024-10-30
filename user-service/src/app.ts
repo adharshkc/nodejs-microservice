@@ -1,17 +1,14 @@
-import express from 'express'
-import 'dotenv/config'
-import userRoutes from "./routes/user.routes"
-import bodyParser from 'body-parser'
+import server from "./server/server";
+import "dotenv/config";
 
-const app = express()
+const port = process.env.PORT;
+const app = server()
 
-const port = process.env.PORT 
-console.log(port)
-app.use(bodyParser.json())
-app.use('/',userRoutes)
 
-app.listen(port, ()=>{
-    console.log("server started on "+port)
-})
 
-export default app;
+
+app.listen(port, () => {
+  console.log("server started on " + port);
+});
+
+export default app
