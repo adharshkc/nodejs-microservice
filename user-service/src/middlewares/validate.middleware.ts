@@ -4,7 +4,7 @@ import { AnyZodObject } from "zod"
 export const validate = (schema:AnyZodObject):RequestHandler=>{
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
-            console.log(req.body)
+            console.log(req.params)
             await schema.parseAsync({
                 body: req.body,
                 query: req.query,
@@ -12,6 +12,7 @@ export const validate = (schema:AnyZodObject):RequestHandler=>{
             });
              next();
         } catch (error: any) { 
+            console.log(error)
              res.status(400).json({ error: error });
         }
     };

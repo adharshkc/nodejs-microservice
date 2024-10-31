@@ -28,3 +28,16 @@ export const checkUser = async function(email:string){
         console.log(error)
     }
 }
+
+export const findUser = async function(userId:string){
+    try {
+        const user = await prisma.user.findUnique({
+            where:{
+                id:userId
+            }
+        })
+        return user
+    } catch (error) {
+        console.log(error)
+    }
+}
