@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ProductService } from './product.services';
 
-@Controller('products')
+@Controller('')
 export class ProductController {
   constructor(private productService: ProductService) {}
 
@@ -26,5 +26,10 @@ export class ProductController {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  @Get('')
+  getRequest(){
+    return 'hi from products'
   }
 }

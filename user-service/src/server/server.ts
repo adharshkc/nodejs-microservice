@@ -5,7 +5,7 @@ import userRoutes from "../routes/user.routes";
 const startServer = function () {
   const app = express();
   app.use(express.json());
-  app.use("/api", userRoutes);
+  app.use("/", userRoutes);
   const errorHandler = (err: any, req: any, res: any, next: any) => {
     if (
       err instanceof SyntaxError &&
