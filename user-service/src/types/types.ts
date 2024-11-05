@@ -6,7 +6,7 @@ export type User ={
     email:string
 }
 
-type Product = {
+export type Post = {
     id?:string,
     name:string,
     description?:string,
