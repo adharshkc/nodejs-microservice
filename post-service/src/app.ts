@@ -11,7 +11,7 @@ app.use((req, res,next)=>{
     console.log("req", req.url)
     next()
 })
-app.use("/products", productRouter);
+app.use("/", productRouter);
 connectDb();
 app.listen(3001, () => {
   console.log("server is running on server 3001");

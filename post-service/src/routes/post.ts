@@ -1,11 +1,10 @@
-import app from "express"
-import { createProduct, getProduct } from "../controllers/post.controller"
+import app from "express";
+import { createPost, getPost } from "../controllers/post.controller";
 
-const router = app.Router()
+const router = app.Router();
 
+router.get("/", (req, res) => {res.send("Hello from Posts")});
+router.post("/", createPost);
+router.get("/:id", getPost);
 
-router.post("/", createProduct)
-router.get("/:id", getProduct)
-
-
-export default router
+export default router;

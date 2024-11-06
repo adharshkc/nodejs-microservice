@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-// import proxy from "express-http-proxy";
+import proxy from "express-http-proxy";
 
 const app = express();
 const port = 3000;
@@ -11,6 +11,9 @@ app.use((req, res, next) => {
     console.log(`Received request for ${req.path}`);
     next();
   });
+
+  app.use("/posts",proxy("http://localhost:3001") )
+  app.use("/", proxy("http://localhost:3002"))
   
 
 

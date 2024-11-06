@@ -9,6 +9,7 @@ export const addPost = async function(name:string, user:{name:string, id:string}
                 name:user.name
             }
         })
+        console.log(data)
         return data
     } catch (error) {
         console.log(error)

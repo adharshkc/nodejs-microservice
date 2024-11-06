@@ -5,6 +5,10 @@ import userRoutes from "../routes/user.routes";
 const startServer = function () {
   const app = express();
   app.use(express.json());
+  app.use((req, res, next)=>{
+    console.log(`Received request for ${req.path}`);
+    next()
+  })
   app.use("/", userRoutes);
   const errorHandler = (err: any, req: any, res: any, next: any) => {
     if (
