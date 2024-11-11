@@ -1,12 +1,11 @@
 import post from "../models/post.model"
 
-export const addPost = async function(name:string, user:{name:string, id:string}){
+export const addPost = async function(name:string, userId:string){
     try {
         const data = await post.create({
             title:name,
             createdBy:{
-                id:user.id,
-                name:user.name
+                id:userId
             }
         })
         console.log(data)

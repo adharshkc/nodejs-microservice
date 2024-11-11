@@ -1,4 +1,4 @@
-import { checkUser, createUser, findUser } from "../helpers/user";
+import { checkUser, createUser, findUser, UserPostAdd } from "../helpers/user";
 
 export class UserServices {
   async userLogin(email: string) {
@@ -16,11 +16,22 @@ export class UserServices {
     return result;
   }
 
+  async addPost(userId:string, {postId, title}:Post){
+    const result = await UserPostAdd(userId, {postId, title})
+  }
+
   async subscriberEvent(payload:any) {
     const {event, data} = payload;
-    const {postId} = data
-    // switch(event){
-    //     case ''
-    // }
+    const {userId, post:{postId, title}} = data;
+    switch(event){
+        case 'ADD_POST':
+        this.userGet(userId)
+    }
   }
+}
+
+
+export type Post={
+  postId:string,
+  title:string
 }

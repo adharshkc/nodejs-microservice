@@ -9,9 +9,6 @@ const postSchema = new mongoose.Schema({
     id: {
       type: String,
     },
-    name: {
-      type: String,
-    },
   },
 });
 

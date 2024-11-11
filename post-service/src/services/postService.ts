@@ -3,8 +3,9 @@ import { addPost, findPost } from "../helpers/post";
 
 
 export class PostService {
-  async postCreate(title: string, user:{name:string, id:string}) {
-    const result = await addPost(title, user);
+  async postCreate(title: string,userId:string) {
+    const result = await addPost(title, userId);
+
     return result
   }
 
