@@ -25,7 +25,7 @@ export class UserServices {
     const {userId, post:{postId, title}} = data;
     switch(event){
         case 'ADD_POST':
-        this.userGet(userId)
+        this.addPost(userId, {postId, title})
     }
   }
 }
